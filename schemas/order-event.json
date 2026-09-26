@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order event v1 \u2014 monetary amounts in USD cents",
+  "type": "object",
+  "required": [
+    "event_id",
+    "order_id",
+    "customer_id",
+    "product_id",
+    "source",
+    "event_type",
+    "status",
+    "event_timestamp",
+    "schema_version",
+    "currency",
+    "quantity",
+    "unit_price",
+    "order_total"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "order_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "enum": [
+        "order_created",
+        "payment_authorized",
+        "payment_failed",
+        "order_ready",
+        "shipment_dispatched",
+        "delivered",
+        "cancelled"
+      ]
+    },
+    "status": {
+      "enum": [
+        "order_created",
+        "payment_authorized",
+        "payment_failed",
+        "order_ready",
+        "shipment_dispatched",
+        "delivered",
+        "cancelled"
+      ]
+    },
+    "event_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "unit_price": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000000
+    },
+    "order_total": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000000000
+    }
+  }
+}
