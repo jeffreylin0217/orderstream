@@ -18,7 +18,3 @@ spark-warehouse/
 *.pem
 *.key
 .DS_Store
-secrets/
-credentials/
-credentials*.json
-.aws/
